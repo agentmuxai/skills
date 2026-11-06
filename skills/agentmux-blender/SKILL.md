@@ -1,13 +1,13 @@
 ---
 name: agentmux-blender
-description: Use when you need to make, change or render 3D scenes in Blender (blender.exe on Windows, Blender on macOS and Linux): objects, materials, cameras, renders to image or video files. Covers headless Python (bpy) first, then a pinned BlenderMCP only if the person approved it, then shortcuts, then Desktop clicks, with a check after each step.
+description: "Use when you need to make, change or render 3D scenes in Blender (blender.exe on Windows, Blender on macOS and Linux): objects, materials, cameras, renders to image or video files. Covers headless Python (bpy) first, then a pinned BlenderMCP only if the person approved it, then shortcuts, then Desktop clicks, with a check after each step."
 ---
 
 # Blender
 
 **Status:** active — verified on Windows with Blender 5.2.3 LTS (see Proof); the shortcut and Desktop routes are not verified.
 
-Computer-use skill: `agentmux.blender` v0.1.0. Executables: `blender.exe` (Windows), `blender` (macOS, Linux). The Python route was run on Windows with Blender 5.2.3 LTS on 2026-11-05 and passed (see Proof); the shortcut and Desktop routes are not verified.
+Computer-use skill: `agentmux.blender` v0.1.0. Executables: `blender.exe` (Windows), `blender` (macOS, Linux). The Python route was run on Windows with Blender 5.2.3 LTS on 2026-11-06 and passed (see Proof); the shortcut and Desktop routes are not verified.
 
 ## The ladder: use the first route that works
 

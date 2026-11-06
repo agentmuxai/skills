@@ -123,14 +123,38 @@ export function signFiles(files, seedB64) {
 
 // ── The checks ─────────────────────────────────────────────────────────────
 
-/** Name and description from SKILL.md's frontmatter (the flat keys the spec allows). */
+/**
+ * Name and description from SKILL.md's frontmatter (the flat keys the spec allows). The values must be valid YAML for
+ * any Agent Skills reader: a double-quoted value is read as JSON (its escapes are YAML's), a single-quoted one with ''
+ * for an apostrophe, and a plain one may not contain ": " or " #" or start with a YAML indicator character, which a
+ * strict parser rejects or reads differently. Quote a description that has a colon in it.
+ */
 export function frontmatter(text) {
     const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n/.exec(text);
     if (!m) throw new Error("SKILL.md needs YAML frontmatter");
     const out = {};
     for (const line of m[1].split(/\r?\n/)) {
         const kv = /^([A-Za-z-]+):\s*(.*)$/.exec(line);
-        if (kv) out[kv[1]] = kv[2].replace(/^["']|["']$/g, "").trim();
+        if (!kv) continue;
+        const [, key, raw] = kv;
+        const v = raw.trim();
+        if (v.startsWith('"')) {
+            try {
+                out[key] = JSON.parse(v);
+            } catch {
+                throw new Error(`SKILL.md ${key}: a double-quoted value must be one valid string (escape " as \\")`);
+            }
+        } else if (v.startsWith("'")) {
+            if (v.length < 2 || !v.endsWith("'") || /(^|[^'])'([^']|$)/.test(v.slice(1, -1))) {
+                throw new Error(`SKILL.md ${key}: a single-quoted value must end with ' and double any ' inside it`);
+            }
+            out[key] = v.slice(1, -1).replace(/''/g, "'");
+        } else {
+            if (/: |\s#/.test(v) || /^[[\]{}&*!|>%@`,?-]/.test(v)) {
+                throw new Error(`SKILL.md ${key}: a plain value can't contain ": " or " #" or start with an indicator character; wrap it in double quotes`);
+            }
+            out[key] = v;
+        }
     }
     return out;
 }

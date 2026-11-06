@@ -1,6 +1,6 @@
 ---
 name: agentmux-excel
-description: Use when you need to create, read or edit a Microsoft Excel workbook, or drive Excel (EXCEL.EXE) on Windows: cells, formulas, sheets, saving. Covers COM first for a workbook open in Excel, a library for a closed .xlsx, then shortcuts, then Desktop clicks, with a check after each step.
+description: "Use when you need to create, read or edit a Microsoft Excel workbook, or drive Excel (EXCEL.EXE) on Windows: cells, formulas, sheets, saving. Covers COM first for a workbook open in Excel, a library for a closed .xlsx, then shortcuts, then Desktop clicks, with a check after each step."
 ---
 
 # Excel (Microsoft Excel for Windows)

@@ -1,6 +1,6 @@
 ---
 name: agentmux-wavelab
-description: Use when you need to edit, process or master audio in Steinberg WaveLab (WaveLab Pro or Elements on Windows): open files, batch-process, render. Covers WaveLab's ActiveX/COM scripting first, then its shortcuts and Batch Processor, then Desktop clicks with zoom, with a check after each step.
+description: "Use when you need to edit, process or master audio in Steinberg WaveLab (WaveLab Pro or Elements on Windows): open files, batch-process, render. Covers WaveLab's ActiveX/COM scripting first, then its shortcuts and Batch Processor, then Desktop clicks with zoom, with a check after each step."
 ---
 
 # WaveLab (Steinberg WaveLab Pro / Elements)

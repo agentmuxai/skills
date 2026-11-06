@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
-import { checkSkill, checkVerification, contentHash, newKey, readSkill, sha256, signFiles, fingerprint } from "./lib.mjs";
+import { checkSkill, checkVerification, contentHash, frontmatter, newKey, readSkill, sha256, signFiles, fingerprint } from "./lib.mjs";
 
 const manifest = (over = {}) => ({
     schema: "computer-use-skill/v1",
@@ -157,5 +157,16 @@ test("an mcp pointer is a catalog id, never a command", () => {
     assert.doesNotThrow(withMcp({ catalogId: null, note: "none in the catalog yet" }));
     for (const bad of [{ command: "uvx" }, { catalogId: "x", command: "uvx" }, { catalogId: "x", args: ["y"] }, { catalogId: "uvx ableton-mcp" }, { catalogId: 5 }, 5, ["x"]]) {
         assert.throws(withMcp(bad), /never a command line/, JSON.stringify(bad));
+    }
+});
+
+test("SKILL.md frontmatter is read as strict YAML would read it", () => {
+    const md = (line) => `---\nname: acme-word\n${line}\n---\nbody\n`;
+    assert.equal(frontmatter(md('description: "Use when: driving Word (WINWORD.EXE), then more"')).description, "Use when: driving Word (WINWORD.EXE), then more");
+    assert.equal(frontmatter(md('description: "say \\"hi\\""')).description, 'say "hi"');
+    assert.equal(frontmatter(md("description: 'it''s fine: really'")).description, "it's fine: really");
+    assert.equal(frontmatter(md("description: Plain text, with commas (and parentheses)")).description, "Plain text, with commas (and parentheses)");
+    for (const bad of ["description: Use when: driving Word", "description: text # not a comment", "description: [a, b]", 'description: "unterminated', "description: 'unterminated", "description: - dash"]) {
+        assert.throws(() => frontmatter(md(bad)), /SKILL\.md description/, bad);
     }
 });

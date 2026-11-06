@@ -1,6 +1,6 @@
 ---
 name: write-a-skill
-description: Use when asked to write, review or update a computer-use skill: the per-application knowledge an agent loads before it drives a desktop app (Word, Excel, Ableton Live, Blender or any other). Gives the folder layout, the control ladder, the manifest, and how to keep unverified steps out.
+description: "Use when asked to write, review or update a computer-use skill: the per-application knowledge an agent loads before it drives a desktop app (Word, Excel, Ableton Live, Blender or any other). Gives the folder layout, the control ladder, the manifest, and how to keep unverified steps out."
 ---
 
 # Write a computer-use skill
@@ -13,7 +13,7 @@ A **computer-use skill** is per-application knowledge for an agent that drives a
 
 A folder named `<publisher>-<id>` (for example `acme-word`), with:
 
-- `SKILL.md`: the frontmatter (`name` equal to the folder name, and a `description` that names the app and its executable so an agent knows when to load it), then the ladder, shortcuts, pitfalls, a verify table and the proof line. Keep it short (under 500 lines, ideally under 60 for the router); an agent reads all of it. Put detail in reference files (`controls.md`, `keys.md`, `pitfalls.md`, `verify.md`) one level deep and point to them.
+- `SKILL.md`: the frontmatter (`name` equal to the folder name, and a `description` that names the app and its executable so an agent knows when to load it; wrap it in double quotes, because a plain value with a colon in it is not valid YAML), then the ladder, shortcuts, pitfalls, a verify table and the proof line. Keep it short (under 500 lines, ideally under 60 for the router); an agent reads all of it. Put detail in reference files (`controls.md`, `keys.md`, `pitfalls.md`, `verify.md`) one level deep and point to them.
 - `computer-use.json`: `schema` `computer-use-skill/v1`, `publisher`, `id`, `name`, `version` (semver), `changelog` (the last entry is the current version), `app` (`vendor`, `executables` per platform, `titleHints`, `versions` with `supported` and `tested`), `platforms`, `ladder`, `mcp` (a catalog id, never a command), and `scripts` (every script file with its `sha256`, a `purpose` of `test` or `helper`, and what it `needs`; a script that uses the network lists `network:<origin>`). `node scripts/skill-sign.mjs hashes <folder>` fills in the hashes.
 - `test.json`: the skill's test task, its steps and the verify cues, written so a machine can check them (a file, a window title, a script result).
 

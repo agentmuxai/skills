@@ -1,6 +1,6 @@
 ---
 name: agentmux-ableton-live
-description: Use when you need to make or change music in Ableton Live (Live.exe on Windows, Ableton Live on macOS): tracks, MIDI clips, devices, tempo, playback. Covers the Remote Script and MCP route first, then Live's keyboard shortcuts, then Desktop clicks, with a check after each step.
+description: "Use when you need to make or change music in Ableton Live (Live.exe on Windows, Ableton Live on macOS): tracks, MIDI clips, devices, tempo, playback. Covers the Remote Script and MCP route first, then Live's keyboard shortcuts, then Desktop clicks, with a check after each step."
 ---
 
 # Ableton Live

@@ -1,6 +1,6 @@
 ---
 name: agentmux-word
-description: Use when you need to create, read or edit a Microsoft Word document, or drive Word (WINWORD.EXE) on Windows. Covers the COM route first, then shortcuts, then Desktop clicks, with a check after each step.
+description: "Use when you need to create, read or edit a Microsoft Word document, or drive Word (WINWORD.EXE) on Windows. Covers the COM route first, then shortcuts, then Desktop clicks, with a check after each step."
 ---
 
 # Word (Microsoft Word for Windows)

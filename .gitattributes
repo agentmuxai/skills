@@ -1,0 +1,4 @@
+# A skill is signed over its exact bytes: never convert its line endings.
+skills/** -text
+guide/** -text
+verification/** -text

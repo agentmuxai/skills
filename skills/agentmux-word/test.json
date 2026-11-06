@@ -1,0 +1,18 @@
+{
+  "skill": "agentmux.word",
+  "requires": [
+    "Microsoft Word for Windows installed",
+    "Desktop control on, and the person's grant for WINWORD.EXE when a step uses Desktop"
+  ],
+  "task": "Create a new document, type the sentence 'AgentMux skill test.', save it as skill-test.docx in your own workspace folder, close Word if you started it.",
+  "steps": [
+    "Route 2 (COM): Documents.Add, Selection.TypeText, SaveAs2 with FileFormat 12, Close, Quit",
+    "Route 3/4 (Desktop), only if COM is unavailable: Ctrl+N, type the sentence, F12, type the full path, Enter, look"
+  ],
+  "verify": [
+    "skill-test.docx exists and is larger than 0 bytes",
+    "the zip holds word/document.xml and it contains 'AgentMux skill test.'",
+    "no WINWORD.EXE that you started is still running"
+  ],
+  "record": "add {skillVersion, appVersion, platform, date, runner, route, result, notes, evidenceSha256} to verification/<name>/<version>.json"
+}

@@ -70,6 +70,17 @@ jobs:
           CATALOG_SIGNING_SEED: ${{ secrets.CATALOG_SIGNING_SEED }}
         run: |
           test -n "$CATALOG_SIGNING_SEED" || { echo "::error::the CATALOG_SIGNING_SEED secret isn't set"; exit 1; }
+          # The agentmux publisher signs its own skills here, with the catalog key. A skill that
+          # already carries a skill.sig keeps it. The key lives on the runner only, never in the repo.
+          umask 077
+          key="$RUNNER_TEMP/catalog-key.json"
+          printf '{"seed":"%s"}' "$CATALOG_SIGNING_SEED" > "$key"
+          for d in skills/*/; do
+            [ -f "${d}skill.sig" ] && continue
+            [ "$(node -p "require('./${d}computer-use.json').publisher")" = agentmux ] || continue
+            node scripts/skill-sign.mjs sign "$d" --key "$key"
+          done
+          rm -f "$key"
           node scripts/build.mjs --out dist
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

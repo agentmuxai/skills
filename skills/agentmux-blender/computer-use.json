@@ -1,0 +1,80 @@
+{
+  "schema": "computer-use-skill/v1",
+  "publisher": "agentmux",
+  "id": "blender",
+  "name": "Blender",
+  "version": "0.1.0",
+  "changelog": [
+    {
+      "version": "0.1.0",
+      "date": "2026-11-05",
+      "by": "AgentMux",
+      "change": "first version"
+    }
+  ],
+  "app": {
+    "vendor": "Blender Foundation",
+    "executables": {
+      "windows": [
+        "blender.exe"
+      ],
+      "macos": [
+        "Blender"
+      ],
+      "linux": [
+        "blender"
+      ]
+    },
+    "titleHints": [
+      "Blender"
+    ],
+    "versions": {
+      "supported": ">=4.2",
+      "tested": [
+        "5.2.3"
+      ]
+    }
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "ladder": [
+    {
+      "kind": "api",
+      "note": "headless Python: blender --background --python (bpy)"
+    },
+    {
+      "kind": "mcp",
+      "note": "BlenderMCP add-on, only a pinned version the person approved (CVE-2026-10688 in execute_blender_code)"
+    },
+    {
+      "kind": "shortcuts",
+      "note": "default keymap, remappable"
+    },
+    {
+      "kind": "desktop",
+      "note": "clicks, with zoom; Blender draws its own widgets"
+    }
+  ],
+  "mcp": null,
+  "scripts": [
+    {
+      "path": "skill_test.py",
+      "sha256": "05eaa0ae71306e2738d2a379db9e3640b65f2382a604a61d688a76261915dcba",
+      "purpose": "test",
+      "needs": [
+        "Blender (bpy)"
+      ]
+    },
+    {
+      "path": "check_png.py",
+      "sha256": "8930b22a56e6bf86093c974029c1e6d035fc0122c506cec1774bbf68d03b44ea",
+      "purpose": "test",
+      "needs": [
+        "python3"
+      ]
+    }
+  ]
+}

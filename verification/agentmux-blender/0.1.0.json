@@ -1,0 +1,13 @@
+[
+  {
+    "skillVersion": "0.1.0",
+    "appVersion": "5.2.3",
+    "platform": "windows",
+    "date": "2026-11-06",
+    "runner": "AgentMux test machine",
+    "route": "api",
+    "result": "pass",
+    "notes": "skill_test.py: exit 0 in about 3 s, 160x120 PNG of 9229 bytes, check_png.py ok",
+    "evidenceSha256": "759e2a7e900587ca5662dc9ecd5368c742989a9352497c216739a5eaacd6d4a2"
+  }
+]

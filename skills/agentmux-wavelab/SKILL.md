@@ -1,13 +1,13 @@
 ---
 name: agentmux-wavelab
-description: "Use when you need to edit, process or master audio in Steinberg WaveLab (WaveLab Pro or Elements on Windows): open files, batch-process, render. Covers WaveLab's ActiveX/COM scripting first, then its shortcuts and Batch Processor, then Desktop clicks with zoom, with a check after each step."
+description: "Use when you need to edit, process or master audio in Steinberg WaveLab (WaveLab Pro or Elements on Windows, and WaveLab Pro on macOS): open files, batch-process, render. Covers WaveLab's ActiveX/COM scripting first (Windows only), then its own scripts, shortcuts and Batch Processor, then Desktop clicks with zoom, with a check after each step."
 ---
 
 # WaveLab (Steinberg WaveLab Pro / Elements)
 
 **Status:** draft — unverified: written from Steinberg's help and forum reports, not yet run on any WaveLab version.
 
-Computer-use skill: `agentmux.wavelab` v0.1, unverified. Written from Steinberg's WaveLab help and forum reports; no step has been run by an agent yet, and WaveLab's own pages could not be read in full while writing (the help site refused automated fetches), so **read the installed documentation before you trust a name below** (see Pitfalls).
+Computer-use skill: `agentmux.wavelab` v0.1.1, unverified. Written from Steinberg's WaveLab help and forum reports; no step has been run by an agent yet, and WaveLab's own pages could not be read in full while writing (the help site refused automated fetches), so **read the installed documentation before you trust a name below** (see Pitfalls).
 
 ## The ladder: use the first route that works
 
@@ -18,6 +18,15 @@ Computer-use skill: `agentmux.wavelab` v0.1, unverified. Written from Steinberg'
 2. **WaveLab's own script language** (ECMAScript, run from inside WaveLab) for tasks done in the program. Scripts are registered in WaveLab's script manager and can be bound to a shortcut.
 3. **The Batch Processor and its plug-in chains**, started from the UI or a shortcut, for the same operation over many files. Set it up by hand once with the person watching; reuse the saved batch.
 4. **Shortcuts and `Desktop` clicks**, last. **Do not assume a default shortcut**: WaveLab lets the person remap them (File > Preferences > Shortcuts). Read the current assignments there, or from the menu text, before pressing anything. Use `zoom` on meters and small values; WaveLab's windows are dense.
+
+## On macOS (knowledge only)
+
+`Desktop` does not drive macOS yet, so this section is for a person or a later AgentMux.
+
+- **Skip route 1.** ActiveX/COM is a Windows technology: there is no COM server to create on a Mac. Start at route 2.
+- **What was seen:** the app is a bundle in `/Applications` named after the edition and major version, `WaveLab Pro 11.app` and `WaveLab Pro 12.app`, with the executable of the same name inside. Look at the version in the app's About box or in Finder's Get Info before you trust a name or a menu below.
+- **Not checked on a Mac:** WaveLab's script language, the Batch Processor and the shortcut list are described in Steinberg's documentation as part of the program. That they behave as on Windows, and the macOS key assignments, are not checked here: read the Preferences > Shortcuts page on the Mac, as below, and expect Command where Windows has Ctrl.
+- WaveLab Elements on macOS was not seen on any Mac, so nothing is said about it.
 
 ## Pitfalls
 

@@ -8,7 +8,7 @@
   "task": "Make a copy of a short WAV, open the copy in WaveLab, normalise it to a peak of -1 dBFS, save it as a new file, and check the new peak. Never change the original.",
   "steps": [
     "Create the source WAV in your workspace with Python (for example a 1 s sine at -12 dBFS)",
-    "Route 1: COM script opens the copy and applies the operation, or Route 3: Batch Processor with a normalise step",
+    "Route 1 (Windows only): COM script opens the copy and applies the operation, or Route 3: Batch Processor with a normalise step",
     "Fallback: Desktop clicks, with zoom and a screenshot after each action"
   ],
   "verify": [

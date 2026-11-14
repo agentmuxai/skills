@@ -3,13 +3,19 @@
   "publisher": "agentmux",
   "id": "wavelab",
   "name": "WaveLab",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "changelog": [
     {
       "version": "0.1.0",
       "date": "2026-11-05",
       "by": "AgentMux",
       "change": "first version, from documentation, unverified"
+    },
+    {
+      "version": "0.1.1",
+      "date": "2026-11-14",
+      "by": "AgentMux",
+      "change": "macOS: the app's bundle names (WaveLab Pro 11 and 12, seen on an installed Mac) so it is found there, and the skill now claims macOS as knowledge only"
     }
   ],
   "app": {
@@ -19,7 +25,10 @@
         "WaveLabPro.exe",
         "WaveLabElements.exe"
       ],
-      "macos": [],
+      "macos": [
+        "WaveLab Pro 12",
+        "WaveLab Pro 11"
+      ],
       "linux": []
     },
     "titleHints": [
@@ -31,7 +40,8 @@
     }
   },
   "platforms": [
-    "windows"
+    "windows",
+    "macos"
   ],
   "ladder": [
     {
@@ -52,5 +62,5 @@
     }
   ],
   "mcp": null,
-  "executablesNote": "The executable names are a guess from the product names and must be confirmed from the installed files before the skill is verified."
+  "executablesNote": "The Windows names are a guess from the product names and must be confirmed from the installed files before the skill is verified. The macOS names are the executables inside the WaveLab Pro 11 and 12 app bundles on an installed Mac; a name with a version number in it is listed once per version seen, and WaveLab Elements on macOS is not listed because none was seen."
 }
